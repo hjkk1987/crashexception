@@ -3,7 +3,7 @@ package com.exception.crash.app;
 import com.exception.crash.app.Services.CrashBinder;
 import com.exception.crash.fun.CrashCaught;
 import com.exception.crash.fun.CrashCaught.OnExceptionCaught;
-
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 
+@SuppressLint("NewApi")
 public class Applications extends Application implements OnExceptionCaught {
 	private static CrashCaught mCrashCaught = null;// 一直伴随着整个app，用static，防止被清理掉。
 	public static boolean debug = false;
@@ -39,7 +40,6 @@ public class Applications extends Application implements OnExceptionCaught {
 			// TODO Auto-generated method stub
 			CrashBinder binder = (CrashBinder) service;
 			mServices = binder.getService();
-
 		}
 	};
 
